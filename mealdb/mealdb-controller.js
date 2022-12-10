@@ -4,10 +4,11 @@ const MealDBController = (app) => {
 }
 
 const findMealById = (req, res) => {
-
+    res.send("hi")
 }
 
 const findRandomMeal = (req, res) => {
+    res.send('h1')
 
 }
 
