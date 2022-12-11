@@ -4,13 +4,21 @@ import UsersController from './users/users-controller.js'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import session from 'express-session'
+<<<<<<< HEAD
 import BlogsController from './blogs/blog-controller.js'
+=======
+import LikesController from "./likes/likes-controller.js";
+import ReviewsController from "./reviews/reviews-controller.js";
+import SessionController from "./session-controller.js";
+>>>>>>> 452f1d3a00ad09f2df149d9614c518b2f37662d2
 const app = express()
+
 
 
 const options = {
     family: 4 // Use IPv4, skip trying IPv6
 }
+
 const CONNECTION_STRING = 'mongodb://localhost:27017/foodalgorithms';
 mongoose.connect(CONNECTION_STRING, options);
 
@@ -32,7 +40,8 @@ app.use(express.json());
 MealDBController(app);
 BlogsController(app);
 UsersController(app);
-
-
+LikesController(app)
+ReviewsController(app)
+SessionController(app)
 
 app.listen(4000)
