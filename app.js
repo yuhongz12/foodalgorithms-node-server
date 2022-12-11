@@ -4,6 +4,7 @@ import UsersController from './users/users-controller.js'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import session from 'express-session'
+import BlogsController from './blogs/blog-controller.js'
 const app = express()
 
 
@@ -28,7 +29,8 @@ app.use(session({
 
 app.use(express.json());
 
-MealDBController(app)
+MealDBController(app);
+BlogsController(app);
 UsersController(app);
 
 
