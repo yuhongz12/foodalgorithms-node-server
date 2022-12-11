@@ -1,6 +1,12 @@
 import blogsModel from "./blogs-model.js";
 
-export const createBlog = async (blog) =>
-    await blogsModel.create(blog)
+export const createBlog = (blog) => 
+     blogsModel.create(blog)
+
+export const findBlogById = (bid) =>
+     blogsModel.findById(bid)
+
+export const findAllBlogs = (bid) =>
+     blogsModel.find();
 
 
