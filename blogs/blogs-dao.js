@@ -7,6 +7,6 @@ export const findBlogById = (bid) =>
      blogsModel.findById(bid)
 
 export const findAllBlogs = (bid) =>
-     blogsModel.find();
+     blogsModel.find().sort('-time').exec();
 
 

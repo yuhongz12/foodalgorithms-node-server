@@ -6,7 +6,7 @@ const blogsSchema = mongoose.Schema({
         required: true
     },
     author: {
-        type: mongoose.Schema.Types.ObjectId, 
+        type: Object, 
         required: true,
         ref: "UserModel"
     },
@@ -16,8 +16,8 @@ const blogsSchema = mongoose.Schema({
     },
     time: {
         type: Date,
-        default: Date.now,
-        required: true
+        required: true,
+        default: Date.now()
     }}, {collection: 'blogs'})
 
 export default blogsSchema

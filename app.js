@@ -8,31 +8,32 @@ import BlogsController from './blogs/blog-controller.js'
 import LikesController from "./likes/likes-controller.js";
 import ReviewsController from "./reviews/reviews-controller.js";
 import SessionController from "./session-controller.js";
-const app = express()
-
-
 
 const options = {
-    family: 4 // Use IPv4, skip trying IPv6
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    autoIndex: false,
+    maxPoolSize: 10,
+    socketTimeoutMS: 45000,
+    family: 4
 }
 
 const CONNECTION_STRING = 'mongodb://localhost:27017/foodalgorithms';
 mongoose.connect(CONNECTION_STRING, options);
 
-
-
+const app = express();
 app.use(cors({
     credentials: true,
     origin: 'http://localhost:3000'
 }))
 app.use(session({
-    secret: 'should be environment variable',
+    secret: 'should be an environment variable',
     resave: false,
     saveUninitialized: true,
-    cookie: {secure: false}
+    cookie: { secure: false }
 }))
-
-app.use(express.json());
+app.use(express.json())
 
 MealDBController(app);
 BlogsController(app);

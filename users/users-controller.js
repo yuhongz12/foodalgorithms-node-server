@@ -27,7 +27,6 @@ const UsersController = (app) => {
     const deleteUser = () => {}
 
     const register = async (req, res) => {
-     
         const user = req.body;
         const existingUser = await userDao
             .findUserByUsername(user.username)
@@ -36,8 +35,6 @@ const UsersController = (app) => {
             return
         }
         const currentUser = await userDao.createUser(user)
-        console.log(currentUser)
-        console.log(req.session)
         req.session['currentUser'] = currentUser
         res.json(currentUser)
     }
@@ -56,6 +53,7 @@ const UsersController = (app) => {
     }
 
     const logout = (req, res) => {
+        console.log(req.session)
         req.session.destroy()
         res.sendStatus(200)
     }
