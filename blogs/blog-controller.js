@@ -21,8 +21,13 @@ const BlogsController = (app) => {
 
     const findBlogById = async (req, res) => {
         const blogId = req.params.bid;
-        const blogDetails = await blogsDao.findBlogById(blogId);
-        res.json(blogDetails);
+        try {
+            const blogDetails = await blogsDao.findBlogById(blogId);
+            res.json(blogDetails);
+        } catch (e) {
+            res.sendStatus(404)
+        }
+        
     }
 
     const findAllBlogs = async (req, res) => {
