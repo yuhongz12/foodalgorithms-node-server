@@ -38,6 +38,7 @@ const BlogsController = (app) => {
     app.post('/blog', createBlog)
     app.get('/blog/:bid', findBlogById)
     app.get('/blog', findAllBlogs)
+    app.get('/blog/user/:uid', findAllBlogs)
 
 }
 export default BlogsController;

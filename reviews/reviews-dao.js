@@ -23,7 +23,9 @@ export const findReviewsByFood = (idMeal) =>
         .exec()
 
 export const findReviewsByAuthor = (author) =>
-    reviewsModel.find({author})
+    reviewsModel.find({author}).sort('-time')
+    .populate('author')
+    .exec()
 
 export const deleteReview = (reviewID) =>
     reviewsModel.deleteOne({_id : reviewID})
