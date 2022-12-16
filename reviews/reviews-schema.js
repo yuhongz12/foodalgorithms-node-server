@@ -6,6 +6,7 @@ const reviewsSchema = mongoose.Schema({
                                           author: {
                                               type: mongoose.Schema.Types.ObjectId,
                                               ref: 'UserModel'
-                                          }
+                                          },
+                                          time: Date
                                       }, {collection: 'reviews'})
 export default reviewsSchema
