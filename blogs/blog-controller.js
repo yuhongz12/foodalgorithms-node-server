@@ -34,10 +34,17 @@ const BlogsController = (app) => {
         const allBlogs = await blogsDao.findAllBlogs();
         res.json(allBlogs);
     }
+    const findBlogByUserId = async (req, res) => {
+        const uid = req.params.uid;
+        const allBlogs = await blogsDao.findBlogByUserId(uid);
+        console.log(allBlogs)
+        res.json(allBlogs);
+    }
 
     app.post('/blog', createBlog)
     app.get('/blog/:bid', findBlogById)
     app.get('/blog', findAllBlogs)
+    // app.get('/blog/user/:uid', findBlogByUserId)
     app.get('/blog/user/:uid', findAllBlogs)
 
 }
